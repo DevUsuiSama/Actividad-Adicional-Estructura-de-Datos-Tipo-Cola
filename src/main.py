@@ -135,6 +135,8 @@ class Caja:
     def sacar_de_la_cola(self, nro_caja):
         if not self.esta_dentro_del_intervalo(nro_caja):
             return self.cajas_del_supermercado[nro_caja - 1].desencolar()
+        else:
+            return None
     # Tarea: Comprobar la cantidad de clientes en cola de la caja
     def cantidad_de_clientes(self, nro_caja):
         if not self.esta_dentro_del_intervalo(nro_caja):
@@ -144,10 +146,12 @@ class Caja:
     def comparar_datos(self, nro_caja, operacion):
         if not self.esta_dentro_del_intervalo(nro_caja):
             return self.cajas_del_supermercado[nro_caja - 1].comparar(operacion)
+        else:
+            return None
 
 class Carrito:
     def __init__(self):
-        self.carritos = [0]
+        self.carritos = [0, 0, 0, 0, 0, 0]
     # Tarea: Cargar DNI al conjunto
     def asignar_carrito(self, DNI, index):
         self.carritos[index] = DNI
